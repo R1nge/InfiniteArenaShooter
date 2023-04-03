@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealthUI : MonoBehaviour
 {
     [SerializeField] private Slider healthBar;
-    private Health _health;
+    private PlayerHealth _health;
 
     private void Awake()
     {
-        _health = GetComponent<Health>();
+        _health = GetComponent<PlayerHealth>();
         _health.InitEvent += UpdateUI;
         _health.OnDamagedEvent += UpdateUI;
         _health.OnDiedEvent += OnDeath;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace Player
 {
@@ -7,11 +8,17 @@ namespace Player
     public class PlayerCharacterMovement : MonoBehaviour
     {
         [SerializeField] private InputActionAsset actions;
-        [SerializeField] private float speed = 7.5f;
         [SerializeField] private float gravity = 20.0f;
         private CharacterController _characterController;
         private Vector3 _moveDirection = Vector3.zero;
         private InputAction _moveAction;
+        private PlayerStats _playerStats;
+
+        [Inject]
+        private void Construct(PlayerStats playerStats)
+        {
+            _playerStats = playerStats;
+        }
 
         private void OnEnable() => actions.Enable();
 
@@ -32,10 +39,10 @@ namespace Player
         {
             if (_characterController.isGrounded)
             {
-                Vector3 forward = Vector3.back;//transform.TransformDirection(Vector3.forward);
-                Vector3 right = Vector3.left;//transform.TransformDirection(Vector3.right);
-                float curSpeedX = speed * _moveAction.ReadValue<Vector2>().y;
-                float curSpeedY = speed * _moveAction.ReadValue<Vector2>().x;
+                Vector3 forward = Vector3.back;
+                Vector3 right = Vector3.left;
+                float curSpeedX = _playerStats.GetSpeed() * _moveAction.ReadValue<Vector2>().y;
+                float curSpeedY = _playerStats.GetSpeed() * _moveAction.ReadValue<Vector2>().x;
                 _moveDirection = forward * curSpeedX + right * curSpeedY;
             }
 
