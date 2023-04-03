@@ -7,13 +7,15 @@ namespace Enemy
 {
     public class Enemy : MonoBehaviour
     {
+        [SerializeField] private int reward;
         [SerializeField] private int damage;
         private PlayerCharacter _player;
+        private EnemyHealth _enemyHealth;
+        private Wallet _wallet;
         private NavMeshAgent _agent;
         private Rigidbody _rigidbody;
         private bool _landed;
         private const string Arena = "Arena";
-        private Wallet _wallet;
 
         [Inject]
         private void Construct(PlayerCharacter player, Wallet wallet)
@@ -26,7 +28,11 @@ namespace Enemy
         {
             _agent = GetComponent<NavMeshAgent>();
             _rigidbody = GetComponent<Rigidbody>();
+            _enemyHealth = GetComponent<EnemyHealth>();
+            _enemyHealth.OnDiedEvent += EnemyOnDiedEvent;
         }
+
+        private void EnemyOnDiedEvent() => _wallet.Earn(reward);
 
         private void Update()
         {
@@ -54,5 +60,7 @@ namespace Enemy
             _agent.enabled = _landed = true;
             _agent.SetDestination(_player.transform.position);
         }
+
+        private void OnDestroy() => _enemyHealth.OnDiedEvent -= EnemyOnDiedEvent;
     }
 }
