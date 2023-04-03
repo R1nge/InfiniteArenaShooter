@@ -293,6 +293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 789330872}
+  - component: {fileID: 789330873}
   m_Layer: 0
   m_Name: WaveSpawner
   m_TagString: Untagged
@@ -315,6 +316,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &789330873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789330871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efc64a1529d4582891cec697768a664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 5359377974375627075, guid: ffff17b464aae824cb97632f87ec416f, type: 3}
+  possibleEnemyAmount: {x: 5, y: 15}
+  arenaSize: {x: 15, y: 10}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +541,7 @@ Transform:
   m_GameObject: {fileID: 1464408799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15.11, y: 1, z: 10}
+  m_LocalScale: {x: 15, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -625,8 +642,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.999999, y: 2.220446e-16, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 9.999999, y: 3.0399642, z: 10}
+  m_Center: {x: 0, y: -1.5199821, z: 0}
 --- !u!1 &1606370561
 GameObject:
   m_ObjectHideFlags: 0

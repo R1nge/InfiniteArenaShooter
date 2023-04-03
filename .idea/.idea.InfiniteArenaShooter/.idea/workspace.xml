@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ecc2b06e-c052-4c12-b28c-c2ee757b94c6" name="Changes" comment="Init">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DI.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DI/PlayerInstaller.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DI/PlayerInstaller.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacter.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacterMovement.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacterMovement.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerRotationController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerRotationController.cs.meta" afterDir="false" />
+    <list default="true" id="ecc2b06e-c052-4c12-b28c-c2ee757b94c6" name="Changes" comment="feat: player movement and rotation controllers">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/WaveSpawner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/WaveSpawner.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InfiniteArenaShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InfiniteArenaShooter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Template.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Template/prototype_texture_512x512.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Template/prototype_texture_512x512.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +79,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680515287465</updated>
-      <workItem from="1680515302288" duration="4318000" />
+      <workItem from="1680515302288" duration="6160000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1680515359525</created>
@@ -97,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680515359525</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: player movement and rotation controllers">
+      <created>1680519734644</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680519734644</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +118,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init" />
+    <MESSAGE value="feat: player movement and rotation controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: player movement and rotation controllers" />
   </component>
 </project>
