@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Player
 {
@@ -8,10 +9,7 @@ namespace Player
         [SerializeField] private LayerMask ignoreLayers;
         private Camera _mainCamera;
 
-        private void Awake()
-        {
-            _mainCamera = Camera.main;
-        }
+        private void Awake() => _mainCamera = Camera.main;
 
         private void Update()
         {
@@ -20,7 +18,7 @@ namespace Player
 
         private void LookAtMouse()
         {
-            var mouse = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            var mouse = _mainCamera.ScreenPointToRay(Mouse.current.position.value);
             if (Physics.Raycast(mouse, out var hit,rayDistance, ~ignoreLayers))
             {
                 transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));

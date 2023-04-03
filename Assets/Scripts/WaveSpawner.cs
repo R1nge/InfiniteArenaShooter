@@ -14,10 +14,7 @@ public class WaveSpawner : MonoBehaviour
         _diContainer = diContainer;
     }
 
-    private void Start()
-    {
-        SpawnWave();
-    }
+    private void Start() => SpawnWave();
 
     private void SpawnWave()
     {
@@ -28,7 +25,7 @@ public class WaveSpawner : MonoBehaviour
             var position = new Vector3(
                 Random.Range(-arenaSize.x / 2f, arenaSize.x / 2f),
                 Random.Range(15, 30),
-                Random.Range(-arenaSize.y / 2, arenaSize.y / 2)
+                Random.Range(-arenaSize.y / 2f, arenaSize.y / 2f)
             );
 
             _diContainer.InstantiatePrefab(enemy, position, Quaternion.identity, null);
