@@ -2,16 +2,7 @@
 
 namespace Player
 {
-    public class PlayerCharacter : MonoBehaviour, IDamageable
+    public class PlayerCharacter : MonoBehaviour
     {
-        [SerializeField] private int health;
-        
-        public void TakeDamage(int amount)
-        {
-            if (health <= 0)
-            {
-                //Show popup (try again, return home)
-            }
-        }
     }
 }

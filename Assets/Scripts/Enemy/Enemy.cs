@@ -30,20 +30,20 @@ namespace Enemy
 
         private void Update()
         {
-            if(!_landed) return;
+            if (!_landed) return;
             _agent.SetDestination(_player.transform.position);
         }
 
         private void OnCollisionEnter(Collision collision)
         {
+            if (collision.gameObject.TryGetComponent(out PlayerHealth playerHealth))
+            {
+                playerHealth.TakeDamage(damage);
+            }
+
             if (collision.gameObject.CompareTag(Arena))
             {
                 OnLanded();
-            }
-
-            if (collision.gameObject.TryGetComponent(out PlayerCharacter player))
-            {
-                player.TakeDamage(damage);
             }
         }
 
