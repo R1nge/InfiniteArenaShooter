@@ -11,9 +11,10 @@ namespace Enemy
         [SerializeField] private int explodeDamage;
         [SerializeField] private float explodeRadius;
         [SerializeField] private float explodeDelay;
+        [SerializeField] private LayerMask playerMask;
         private bool _exploded;
         private PlayerCharacter _player;
-        private readonly Collider[] _hitColliders = new Collider[30];
+        private readonly Collider[] _hitColliders = new Collider[1];
 
         [Inject]
         private void Construct(PlayerCharacter player)
@@ -34,13 +35,11 @@ namespace Enemy
         {
             _exploded = true;
             yield return new WaitForSeconds(explodeDelay);
-            int collidersCount = Physics.OverlapSphereNonAlloc(transform.position, explodeRadius, _hitColliders);
-            for (int i = 0; i < collidersCount; i++)
+            Physics.OverlapSphereNonAlloc(transform.position, explodeRadius, _hitColliders, playerMask);
+            
+            if (_hitColliders[0].TryGetComponent(out PlayerHealth playerHealth))
             {
-                if (_hitColliders[i].TryGetComponent(out PlayerHealth playerHealth))
-                {
-                    playerHealth.TakeDamage(explodeDamage);
-                }
+                playerHealth.TakeDamage(explodeDamage);
             }
             
             Destroy(gameObject);

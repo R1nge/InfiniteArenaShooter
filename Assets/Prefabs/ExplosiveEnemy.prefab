@@ -392,6 +392,9 @@ MonoBehaviour:
   explodeDamage: 1
   explodeRadius: 3
   explodeDelay: 0.25
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &6802014801165834860
 MonoBehaviour:
   m_ObjectHideFlags: 0
