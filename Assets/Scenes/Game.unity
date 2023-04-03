@@ -644,6 +644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 5359377974375627075, guid: ffff17b464aae824cb97632f87ec416f, type: 3}
+  - {fileID: 5359377974375627075, guid: 3c412d2453b9ba24288af04024791a25, type: 3}
   possibleEnemyAmount: {x: 5, y: 15}
   arenaSize: {x: 15, y: 10}
 --- !u!1 &963194225
