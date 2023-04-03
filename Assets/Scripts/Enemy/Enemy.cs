@@ -8,7 +8,6 @@ namespace Enemy
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private int reward;
-        [SerializeField] private int damage;
         private PlayerCharacter _player;
         private EnemyHealth _enemyHealth;
         private Wallet _wallet;
@@ -42,11 +41,6 @@ namespace Enemy
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.TryGetComponent(out PlayerHealth playerHealth))
-            {
-                playerHealth.TakeDamage(damage);
-            }
-
             if (collision.gameObject.CompareTag(Arena))
             {
                 OnLanded();

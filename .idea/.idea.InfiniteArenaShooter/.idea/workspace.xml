@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ecc2b06e-c052-4c12-b28c-c2ee757b94c6" name="Changes" comment="feat: player stats">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyHealthUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyHealthUI.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.InfiniteArenaShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InfiniteArenaShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy1.prefab" afterDir="false" />
+    <list default="true" id="ecc2b06e-c052-4c12-b28c-c2ee757b94c6" name="Changes" comment="feat: reward for an enemy">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyAttack.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyAttack.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1680515287465</updated>
       <workItem from="1680515302288" duration="16809000" />
-      <workItem from="1680534641533" duration="4298000" />
+      <workItem from="1680534641533" duration="4999000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1680515359525</created>
@@ -123,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680537235471</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: reward for an enemy">
+      <created>1680539094286</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1680539094286</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +156,7 @@
     <MESSAGE value="feat: wallet, lava" />
     <MESSAGE value="feat: player health" />
     <MESSAGE value="feat: player stats" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: player stats" />
+    <MESSAGE value="feat: reward for an enemy" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: reward for an enemy" />
   </component>
 </project>
