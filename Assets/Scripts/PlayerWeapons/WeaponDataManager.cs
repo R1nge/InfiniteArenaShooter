@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BayatGames.SaveGameFree;
 using UnityEngine;
 using Zenject;
@@ -65,6 +66,14 @@ namespace PlayerWeapons
             }
 
             _lastWeaponIndex = PlayerPrefs.GetInt("LastWeaponIndex");
+        }
+        
+        private void OnApplicationFocus(bool hasFocus)
+        {
+            if (hasFocus == false)
+            {
+                Save();
+            }
         }
 
         private void OnApplicationQuit() => Save();

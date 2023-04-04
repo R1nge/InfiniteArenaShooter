@@ -1,4 +1,5 @@
 ﻿using Player;
+using SkillSystem;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -7,20 +8,23 @@ namespace Enemy
 {
     public class Enemy : MonoBehaviour
     {
-        [SerializeField] private int reward;
+        [SerializeField] private int moneyReward;
+        [SerializeField] private float experienceReward;
         private PlayerCharacter _player;
         private EnemyHealth _enemyHealth;
         private Wallet _wallet;
+        private SkillLevelManager _skillLevelManager;
         private NavMeshAgent _agent;
         private Rigidbody _rigidbody;
         private bool _landed;
         private const string Arena = "Arena";
 
         [Inject]
-        private void Construct(PlayerCharacter player, Wallet wallet)
+        private void Construct(PlayerCharacter player, Wallet wallet, SkillLevelManager skillLevelManager)
         {
             _player = player;
             _wallet = wallet;
+            _skillLevelManager = skillLevelManager;
         }
 
         private void Awake()
@@ -31,7 +35,12 @@ namespace Enemy
             _enemyHealth.OnDiedEvent += EnemyOnDiedEvent;
         }
 
-        private void EnemyOnDiedEvent() => _wallet.Earn(reward);
+        private void EnemyOnDiedEvent()
+        {
+            _wallet.Earn(moneyReward);
+            _skillLevelManager.AddExperience(experienceReward);
+            Destroy(gameObject);
+        }
 
         private void Update()
         {

@@ -7,10 +7,10 @@ namespace Player
     public class PlayerHealth : MonoBehaviour, IDamageable
     {
         private PlayerStats _playerStats;
-        private int _currentHealth;
+        private float _currentHealth;
 
-        public event Action<int, int> InitEvent;
-        public event Action<int, int> OnDamagedEvent;
+        public event Action<float, float> InitEvent;
+        public event Action<float, float> OnDamagedEvent;
         public event Action OnDiedEvent;
 
         [Inject]

@@ -1,15 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ecc2b06e-c052-4c12-b28c-c2ee757b94c6" name="Changes" comment="feat: auto weapon">
+    <list default="true" id="ecc2b06e-c052-4c12-b28c-c2ee757b94c6" name="Changes" comment="feat: last weapon save; Blaster Kit - Kenney">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DI/SkillLevelManagerInstaller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DI/SkillLevelManagerInstaller.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SkillSystem.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SkillSystem/SkillLevelManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SkillSystem/SkillLevelManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SkillSystem/SkillLevelUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SkillSystem/SkillLevelUI.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InfiniteArenaShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InfiniteArenaShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AutoWeapon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AutoWeapon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BulletPool.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BulletPool.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WeaponDataManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WeaponDataManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWeaponController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWeaponController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterA.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterA.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterB.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterB.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterC.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterC.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterD.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterD.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterE.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterE.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterF.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterF.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterG.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterG.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterH.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterH.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterI.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterI.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterJ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterJ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterK.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterK.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterL.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterL.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterM.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterM.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterN.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/blasterN.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/clipA.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/clipA.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/foamBulletA.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/foamBulletA.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/foamBulletB.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/foamBulletB.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/targetA.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/targetA.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/targetB.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/kenney_blasterKit/Side/targetB.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pistol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pistol.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Home.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Home.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerHealthUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerHealthUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerWeapons/WeaponDataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerWeapons/WeaponDataManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,10 +50,14 @@
     <setting file="file://$PROJECT_DIR$/../DodgeThis/Assets/Scripts/Character/Tps/CharacterMovementTpsCC.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Prefabs/AutoWeapon.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Prefabs/AutoWeapon.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Prefabs/AutoWeapon.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Prefabs/BulletPool.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Prefabs/ExplosiveEnemy.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Prefabs/Player.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Scripts/Enemy/EnemyHealth.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Scripts/Player/PlayerWeaponController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Scripts/Player/PlayerWeaponController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Scripts/PlayerWeapons/WeaponDataManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../RoguelikeShooter/Assets/Scripts/Player/PlayerMovementController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UnityUsefulScripts/DI/Zenject/Installers/PlayerInstaller.cs" root0="SKIP_HIGHLIGHTING" />
@@ -50,6 +83,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build\InfiniteArenaShooter.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\UnityProjects\InfiniteArenaShooter\Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\UnityEngines\2021.3.21f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\UnityProjects\InfiniteArenaShooter -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
@@ -90,7 +131,7 @@
       <workItem from="1680515302288" duration="16809000" />
       <workItem from="1680534641533" duration="7697000" />
       <workItem from="1680543855397" duration="1450000" />
-      <workItem from="1680583214597" duration="11379000" />
+      <workItem from="1680583214597" duration="21594000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1680515359525</created>
@@ -169,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680593474481</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feat: last weapon save; Blaster Kit - Kenney">
+      <created>1680595656292</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680595656292</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +250,7 @@
     <MESSAGE value="feat: explosive enemy" />
     <MESSAGE value="ref: ExplosiveEnemyAttack added a layer mask" />
     <MESSAGE value="feat: auto weapon" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: auto weapon" />
+    <MESSAGE value="feat: last weapon save; Blaster Kit - Kenney" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: last weapon save; Blaster Kit - Kenney" />
   </component>
 </project>

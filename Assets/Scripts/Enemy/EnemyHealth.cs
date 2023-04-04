@@ -23,7 +23,6 @@ namespace Enemy
             if (_currentHealth <= 0)
             {
                 OnDiedEvent?.Invoke();
-                //TODO: destroy gameobject
             }
             else
             {

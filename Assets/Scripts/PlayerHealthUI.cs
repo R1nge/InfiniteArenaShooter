@@ -15,7 +15,7 @@ public class PlayerHealthUI : MonoBehaviour
         _health.OnDiedEvent += OnDeath;
     }
 
-    private void UpdateUI(int health, int maxHealth)
+    private void UpdateUI(float health, float maxHealth)
     {
         healthBar.maxValue = maxHealth;
         healthBar.value = health;

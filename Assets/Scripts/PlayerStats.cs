@@ -2,24 +2,36 @@
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private int speed;
-    [SerializeField] private int maxHealth;
+    [SerializeField] private float speed;
+    [SerializeField] private float maxHealth;
 
-    public int GetSpeed() => speed;
+    public float GetSpeed() => speed;
 
-    public int GetMaxHealth() => maxHealth;
+    public void SetSpeed(float value)
+    {
+        speed = value;
+        Save();
+    }
+
+    public float GetMaxHealth() => maxHealth;
+
+    public void SetMaxHealth(float value)
+    {
+        maxHealth = value;
+        Save();
+    } 
 
     private void Awake() => Load();
 
     private void Load()
     {
-        var savedSpeed = PlayerPrefs.GetInt("Speed");
+        var savedSpeed = PlayerPrefs.GetFloat("Speed");
         if (savedSpeed != 0)
         {
             speed = savedSpeed;
         }
 
-        var savedHealth = PlayerPrefs.GetInt("MaxHealth");
+        var savedHealth = PlayerPrefs.GetFloat("MaxHealth");
         if (savedHealth != 0)
         {
             maxHealth = savedHealth;
@@ -28,8 +40,8 @@ public class PlayerStats : MonoBehaviour
 
     private void Save()
     {
-        PlayerPrefs.SetInt("Speed", speed);
-        PlayerPrefs.SetInt("MaxHealth", maxHealth);
+        PlayerPrefs.SetFloat("Speed", speed);
+        PlayerPrefs.SetFloat("MaxHealth", maxHealth);
         PlayerPrefs.Save();
     }
 
