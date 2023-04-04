@@ -23,7 +23,7 @@ namespace Player
         private void Awake()
         {
             _attackAction = actions.FindActionMap("Player").FindAction("Attack");
-            SetWeapon(_weaponDataManager.GetWeapon(0));
+            SetWeapon(_weaponDataManager.GetSavedWeapon());
         }
 
         private void Update()

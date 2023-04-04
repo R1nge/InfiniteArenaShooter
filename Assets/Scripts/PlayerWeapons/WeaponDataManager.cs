@@ -11,6 +11,7 @@ namespace PlayerWeapons
         private Dictionary<string, WeaponData> _data;
         private readonly string _identifier = "weaponData";
         private DiContainer _diContainer;
+        private int _lastWeaponIndex;
 
         [Inject]
         private void Construct(DiContainer diContainer)
@@ -21,6 +22,11 @@ namespace PlayerWeapons
         public AutoWeapon GetWeapon(int index)
         {
             return _diContainer.InstantiatePrefabForComponent<AutoWeapon>(weapons[index]);
+        }
+
+        public AutoWeapon GetSavedWeapon()
+        {
+            return _diContainer.InstantiatePrefabForComponent<AutoWeapon>(weapons[_lastWeaponIndex]);
         }
 
         private void Awake()
@@ -39,7 +45,10 @@ namespace PlayerWeapons
             {
                 _data[weapons[i].GetData().name] = weapons[i].GetData();
             }
-
+            
+            PlayerPrefs.SetInt("LastWeaponIndex", _lastWeaponIndex);
+            PlayerPrefs.Save();
+            
             SaveGame.Save(_identifier, _data);
         }
 
@@ -54,6 +63,8 @@ namespace PlayerWeapons
                     weapons[i].SetData(weaponData);
                 }
             }
+
+            _lastWeaponIndex = PlayerPrefs.GetInt("LastWeaponIndex");
         }
 
         private void OnApplicationQuit() => Save();
