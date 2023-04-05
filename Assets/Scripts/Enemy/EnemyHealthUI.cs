@@ -11,11 +11,12 @@ namespace Enemy
         private void Awake()
         {
             _enemyHealth = GetComponent<EnemyHealth>();
+            _enemyHealth.InitEvent += UpdateUI;
             _enemyHealth.OnDamagedEvent += UpdateUI;
             _enemyHealth.OnDiedEvent += OnDiedEvent;
         }
 
-        private void UpdateUI(int health, int maxHealth)
+        private void UpdateUI(float health, float maxHealth)
         {
             healthBar.maxValue = maxHealth;
             healthBar.value = health;
@@ -25,6 +26,7 @@ namespace Enemy
 
         private void OnDestroy()
         {
+            _enemyHealth.InitEvent -= UpdateUI;
             _enemyHealth.OnDamagedEvent -= UpdateUI;
             _enemyHealth.OnDiedEvent -= OnDiedEvent;
         }

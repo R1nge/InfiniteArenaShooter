@@ -27,7 +27,7 @@ namespace Player
 
         private void Start() => InitEvent?.Invoke(_currentHealth, _playerStats.GetMaxHealth());
 
-        public void TakeDamage(int amount)
+        public void TakeDamage(float amount)
         {
             _currentHealth -= amount;
 

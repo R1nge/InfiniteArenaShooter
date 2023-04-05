@@ -52,7 +52,11 @@ MonoBehaviour:
     fireRate: 123
     reloadTime: 123
     clipSize: 123
-    bulletSpeed: 500
+    bulletSpeed: 1000
+    damageLevel: 1
+    fireRateLevel: 1
+    reloadTimeLevel: 1
+    clipSizeLevel: 1
   shootPoint: {fileID: 5159012391172739857}
 --- !u!1 &1716898369538231041
 GameObject:

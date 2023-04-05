@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using Zenject;
 
@@ -12,19 +13,27 @@ namespace PlayerWeapons
         private float _nextFire;
         private bool _isReloading;
         private BulletPool _bulletPool;
+        private WeaponDataManager _weaponDataManager;
 
         public WeaponData GetData() => weaponData;
-        public void SetData(WeaponData newData) => weaponData = newData;
+        
+        //TODO: get weapon data from weaponDataManager
+
+        private void Start()
+        {
+            weaponData = _weaponDataManager.GetWeaponData(weaponData.GetName());
+        }
 
         [Inject]
-        private void Construct(BulletPool bulletPool)
+        private void Construct(BulletPool bulletPool, WeaponDataManager weaponDataManager)
         {
             _bulletPool = bulletPool;
+            _weaponDataManager = weaponDataManager;
         }
 
         private void Awake()
         {
-            _currentAmmoAmount = weaponData.clipSize;
+            _currentAmmoAmount = weaponData.GetClipSize();
         }
 
         public void Attack()
@@ -46,20 +55,20 @@ namespace PlayerWeapons
         {
             if (Time.time > _nextFire)
             {
-                _nextFire = Time.time + 1 / (weaponData.fireRate / 60f);
+                _nextFire = Time.time + 1 / (weaponData.GetFireRate() / 60f);
                 _currentAmmoAmount--;
                 var bulletInstance = _bulletPool.GetFromPool(shootPoint.position, Quaternion.identity);
-                bulletInstance.SetDamage(weaponData.damage);
-                bulletInstance.AddForce(shootPoint.forward, weaponData.bulletSpeed);
+                bulletInstance.SetDamage(weaponData.GetDamage());
+                bulletInstance.AddForce(shootPoint.forward, weaponData.GetBulletSpeed());
             }
         }
 
         private IEnumerator Reload_c()
         {
             _isReloading = true;
-            yield return new WaitForSeconds(weaponData.reloadTime);
+            yield return new WaitForSeconds(weaponData.GetReloadTime());
             _isReloading = false;
-            _currentAmmoAmount = weaponData.clipSize;
+            _currentAmmoAmount = weaponData.GetClipSize();
         }
     }
 }

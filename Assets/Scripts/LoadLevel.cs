@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +9,10 @@ public class LoadLevel : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(LoadMap_c());
+        if (other.TryGetComponent(out PlayerCharacter _))
+        {
+            StartCoroutine(LoadMap_c());
+        }
     }
 
     private IEnumerator LoadMap_c()

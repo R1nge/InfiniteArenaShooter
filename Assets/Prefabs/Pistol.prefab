@@ -48,11 +48,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData:
     name: Pistol
-    damage: 1
+    damage: 0
     fireRate: 60
     reloadTime: 3
     clipSize: 20
     bulletSpeed: 250
+    basePrice: 1
+    _isUnlocked: 0
+    _damageLevel: 38
+    _fireRateLevel: 0
+    _reloadTimeLevel: 0
+    _clipSizeLevel: 0
   shootPoint: {fileID: 5159012391172739857}
 --- !u!1 &1716898369538231041
 GameObject:
