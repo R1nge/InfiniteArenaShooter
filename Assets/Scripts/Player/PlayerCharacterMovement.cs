@@ -39,8 +39,8 @@ namespace Player
         {
             if (_characterController.isGrounded)
             {
-                Vector3 forward = Vector3.back;
-                Vector3 right = Vector3.left;
+                Vector3 forward = Vector3.forward;
+                Vector3 right = Vector3.right;
                 float curSpeedX = _playerStats.GetSpeed() * _moveAction.ReadValue<Vector2>().y;
                 float curSpeedY = _playerStats.GetSpeed() * _moveAction.ReadValue<Vector2>().x;
                 _moveDirection = forward * curSpeedX + right * curSpeedY;
