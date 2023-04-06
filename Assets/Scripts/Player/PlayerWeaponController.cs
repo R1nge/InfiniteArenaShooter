@@ -22,7 +22,12 @@ namespace Player
 
         private void Awake()
         {
+            _weaponDataManager.OnLoadCompleted += WeaponDataManagerOnLoadCompleted;
             _attackAction = actions.FindActionMap("Player").FindAction("Attack");
+        }
+
+        private void WeaponDataManagerOnLoadCompleted()
+        {
             SetWeapon(_weaponDataManager.SpawnSavedWeapon());
         }
 

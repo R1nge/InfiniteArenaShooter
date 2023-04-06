@@ -53,6 +53,8 @@ MonoBehaviour:
     reloadTime: 123
     clipSize: 123
     bulletSpeed: 1000
+    basePrice: 1
+    isUnlocked: 0
     damageLevel: 1
     fireRateLevel: 1
     reloadTimeLevel: 1
