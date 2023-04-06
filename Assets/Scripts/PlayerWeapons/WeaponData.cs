@@ -15,11 +15,11 @@ namespace PlayerWeapons
         [SerializeField] private int bulletSpeed;
         [SerializeField] private int basePrice = 1;
 
-        [SerializeField, HideInInspector] private bool _isUnlocked;
-        [SerializeField, HideInInspector] private int _damageLevel;
-        [SerializeField, HideInInspector] private int _fireRateLevel;
-        [SerializeField, HideInInspector] private int _reloadTimeLevel;
-        [SerializeField, HideInInspector] private int _clipSizeLevel;
+        [SerializeField] private bool isUnlocked;
+        [SerializeField] private int damageLevel;
+        [SerializeField] private int fireRateLevel;
+        [SerializeField] private int reloadTimeLevel;
+        [SerializeField] private int clipSizeLevel;
 
         private static readonly float DamageModifier = 1.05f;
         private static readonly float FireRateModifier = 1.1f;
@@ -31,43 +31,43 @@ namespace PlayerWeapons
         public string GetName() => name;
         public void SetName(string value) => name = value;
         public float GetDamage() => damage;
-        public float GetFireRate() => fireRate * _fireRateLevel;
+        public float GetFireRate() => fireRate;
         public float GetReloadTime() => reloadTime;
         public int GetClipSize() => clipSize;
         public int GetBulletSpeed() => bulletSpeed;
-        public bool IsUnlocked() => _isUnlocked;
-        public void SetLockState(bool value) => _isUnlocked = value; 
-        public int GetDamageLevel() => _damageLevel;
-        public int GetFireRateLevel() => _fireRateLevel;
-        public int GetReloadTimeLevel() => _reloadTimeLevel;
-        public int GetClipSizeLevel() => _reloadTimeLevel;
-        public float GetDamagePrice() => basePrice * (_damageLevel * PriceLevelModifier);
-        public float GetFireRatePrice() => basePrice * (_fireRateLevel * PriceLevelModifier);
-        public float GetReloadTimePrice() => basePrice * (_reloadTimeLevel * PriceLevelModifier);
-        public float GetClipSizePrice() => basePrice * (_clipSizeLevel * PriceLevelModifier);
+        public bool IsUnlocked() => isUnlocked;
+        public void SetLockState(bool value) => isUnlocked = value;
+        public int GetDamageLevel() => damageLevel;
+        public int GetFireRateLevel() => fireRateLevel;
+        public int GetReloadTimeLevel() => reloadTimeLevel;
+        public int GetClipSizeLevel() => reloadTimeLevel;
+        public float GetDamagePrice() => basePrice * (damageLevel * PriceLevelModifier);
+        public float GetFireRatePrice() => basePrice * (fireRateLevel * PriceLevelModifier);
+        public float GetReloadTimePrice() => basePrice * (reloadTimeLevel * PriceLevelModifier);
+        public float GetClipSizePrice() => basePrice * (clipSizeLevel * PriceLevelModifier);
 
         public void IncreaseDamage()
         {
-            _damageLevel++;
-            damage += DamageModifier * _damageLevel;
+            damageLevel++;
+            damage += DamageModifier * damageLevel;
         }
 
         public void IncreaseFireRate()
         {
-            _fireRateLevel++;
-            fireRate += FireRateModifier * _fireRateLevel;
+            fireRateLevel++;
+            fireRate += FireRateModifier * fireRateLevel;
         }
 
         public void DecreaseReloadTime()
         {
-            _reloadTimeLevel++;
-            reloadTime -= ReloadTimeModifier * _reloadTimeLevel;
+            reloadTimeLevel++;
+            reloadTime -= ReloadTimeModifier * reloadTimeLevel;
         }
 
         public void IncreaseClipSize()
         {
-            _clipSizeLevel++;
-            clipSize += ClipSizeModifier * _clipSizeLevel;
+            clipSizeLevel++;
+            clipSize += ClipSizeModifier * clipSizeLevel;
         }
 
         public string Stringify()

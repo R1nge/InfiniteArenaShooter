@@ -14,6 +14,7 @@ namespace PlayerWeapons
         private int _lastWeaponIndex;
         private DiContainer _diContainer;
         private PlayFabManager _playFabManager;
+        public event Action OnLoadCompleted; 
 
         [Inject]
         private void Construct(DiContainer diContainer, PlayFabManager playFabManager)
@@ -34,7 +35,7 @@ namespace PlayerWeapons
 
         public WeaponData GetWeaponData(string weaponName) => _data[weaponName];
 
-        private void Start()
+        private void Awake()
         {
             for (int i = 0; i < weapons.Length; i++)
             {
@@ -66,7 +67,9 @@ namespace PlayerWeapons
                     var weapon = result.Data[weapons[i].GetData().GetName()].Value;
                     _data[weapons[i].GetData().GetName()] = JsonUtility.FromJson<WeaponData>(weapon);
                 }
-
+                
+                OnLoadCompleted?.Invoke();
+                
                 print("WeaponData: Loaded save");
             }, error => { Debug.LogError(error.GenerateErrorReport(), this); });
         }
