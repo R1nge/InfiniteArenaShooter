@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine;
@@ -35,8 +36,6 @@ namespace PlayerWeapons
 
         private void Start()
         {
-            Debug.Log("start", this);
-
             for (int i = 0; i < weapons.Length; i++)
             {
                 _data.Add(weapons[i].GetData().GetName(), weapons[i].GetData());
@@ -68,7 +67,7 @@ namespace PlayerWeapons
                     _data[weapons[i].GetData().GetName()] = JsonUtility.FromJson<WeaponData>(weapon);
                 }
 
-                print("Loaded save");
+                print("WeaponData: Loaded save");
             }, error => { Debug.LogError(error.GenerateErrorReport(), this); });
         }
 
@@ -89,12 +88,12 @@ namespace PlayerWeapons
 
         private void OnSaveSuccess(UpdateUserDataResult result)
         {
-            print("Save successful");
+            print("WeaponData: Save successful");
         }
 
         private void OnSaveError(PlayFabError error)
         {
-            Debug.LogError("Save failed");
+            Debug.LogError("WeaponData: Save failed");
             Debug.LogError(error.GenerateErrorReport());
         }
 

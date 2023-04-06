@@ -29,32 +29,32 @@ namespace UI.Buttons
 
         public void OnFireRateHover()
         {
-            text.text = weapon.GetData().GetFireRate().ToString("#.##");
+            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetFireRate().ToString("#.##");
         }
 
         public void OnFireRateExit()
         {
-            text.text = weapon.GetData().GetFireRatePrice().ToString("#.##");
+            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetFireRatePrice().ToString("#.##");
         }
 
         public void OnReloadTimeHover()
         {
-            text.text = weapon.GetData().GetReloadTime().ToString("#.##");
+            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetReloadTime().ToString("#.##");
         }
 
         public void OnReloadTimeExit()
         {
-            text.text = weapon.GetData().GetReloadTimePrice().ToString("#.##");
+            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetReloadTimePrice().ToString("#.##");
         }
 
         public void OnClipSizeHover()
         {
-            text.text = weapon.GetData().GetClipSize().ToString("#.##");
+            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetClipSize().ToString("#.##");
         }
 
         public void OnClipSizeExit()
         {
-            text.text = weapon.GetData().GetClipSizePrice().ToString("#.##");
+            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetClipSizePrice().ToString("#.##");
         }
 
         public void UpgradeDamage()
@@ -65,20 +65,20 @@ namespace UI.Buttons
 
         public void UpgradeFireRate()
         {
-            weapon.GetData().IncreaseFireRate();
-            text.text = weapon.GetData().GetFireRate().ToString("#.##");
+            _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).IncreaseFireRate();
+            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetFireRate().ToString("#.##");
         }
 
         public void UpgradeReloadTime()
         {
-            weapon.GetData().DecreaseReloadTime();
-            text.text = weapon.GetData().GetReloadTime().ToString("#.##");
+            _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).DecreaseReloadTime();
+            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetReloadTime().ToString("#.##");
         }
 
         public void UpgradeClipSize()
         {
-            weapon.GetData().IncreaseClipSize();
-            text.text = weapon.GetData().GetClipSize().ToString("#.##");
+            _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).IncreaseClipSize();
+            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetClipSize().ToString("#.##");
         }
     }
 }

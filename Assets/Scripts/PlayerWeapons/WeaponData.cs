@@ -36,6 +36,7 @@ namespace PlayerWeapons
         public int GetClipSize() => clipSize;
         public int GetBulletSpeed() => bulletSpeed;
         public bool IsUnlocked() => _isUnlocked;
+        public void SetLockState(bool value) => _isUnlocked = value; 
         public int GetDamageLevel() => _damageLevel;
         public int GetFireRateLevel() => _fireRateLevel;
         public int GetReloadTimeLevel() => _reloadTimeLevel;
