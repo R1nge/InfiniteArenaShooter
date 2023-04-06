@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using PlayFab.ClientModels;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,19 +9,6 @@ namespace PlayFab
     {
         private string _userName, _password;
         private string _userID;
-
-        public event Action OnLogIn;
-
-        private void Start()
-        {
-            var request = new LoginWithPlayFabRequest
-            {
-                Username = _userName,
-                Password = _password
-            };
-
-            PlayFabClientAPI.LoginWithPlayFab(request, OnLoginSuccess, OnLoginError);
-        }
 
         public string GetUserID() => _userID;
 
@@ -89,10 +75,8 @@ namespace PlayFab
 
         private IEnumerator WaitForConnection()
         {
-            
-            //TODO: wait for
             yield return new WaitForSeconds(3);
-            OnLogIn?.Invoke();
+            SceneManager.LoadScene("Home");
         }
 
         private void OnLoginError(PlayFabError error)

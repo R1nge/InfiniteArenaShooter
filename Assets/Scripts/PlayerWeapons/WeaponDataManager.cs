@@ -2,7 +2,6 @@
 using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace PlayerWeapons
@@ -43,7 +42,7 @@ namespace PlayerWeapons
                 _data.Add(weapons[i].GetData().GetName(), weapons[i].GetData());
             }
 
-            _playFabManager.OnLogIn += Load;
+            Load();
         }
 
         private void Load()
@@ -67,13 +66,10 @@ namespace PlayerWeapons
                 {
                     var weapon = result.Data[weapons[i].GetData().GetName()].Value;
                     _data[weapons[i].GetData().GetName()] = JsonUtility.FromJson<WeaponData>(weapon);
-                    print("Loaded save");
-                    SceneManager.LoadScene("Home");
                 }
-            }, error =>
-            {
-                SceneManager.LoadScene("Home");
-            });
+
+                print("Loaded save");
+            }, error => { Debug.LogError(error.GenerateErrorReport(), this); });
         }
 
         private void Save()
@@ -108,11 +104,6 @@ namespace PlayerWeapons
             {
                 Save();
             }
-        }
-
-        private void OnDestroy()
-        {
-            _playFabManager.OnLogIn -= Load;
         }
     }
 }
