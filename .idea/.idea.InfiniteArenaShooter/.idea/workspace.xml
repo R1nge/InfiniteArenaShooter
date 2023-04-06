@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ecc2b06e-c052-4c12-b28c-c2ee757b94c6" name="Changes" comment="">
+    <list default="true" id="ecc2b06e-c052-4c12-b28c-c2ee757b94c6" name="Changes" comment="fix: made player's camera look at Z direction">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InfiniteArenaShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InfiniteArenaShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Home.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Home.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacterMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ExplosiveEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ExplosiveEnemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerWeapons/WeaponDataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerWeapons/WeaponDataManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wallet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wallet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +98,7 @@
       <workItem from="1680678074065" duration="25662000" />
       <workItem from="1680714283099" duration="2968000" />
       <workItem from="1680756103285" duration="13199000" />
-      <workItem from="1680785784934" duration="307000" />
+      <workItem from="1680785784934" duration="3683000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1680515359525</created>
@@ -225,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680780417792</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fix: made player's camera look at Z direction">
+      <created>1680786175425</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1680786175425</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,6 +273,7 @@
     <MESSAGE value="feat: WebGL copy/paste" />
     <MESSAGE value="feat: money saving" />
     <MESSAGE value="feat: weapon data save/load" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: weapon data save/load" />
+    <MESSAGE value="fix: made player's camera look at Z direction" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: made player's camera look at Z direction" />
   </component>
 </project>

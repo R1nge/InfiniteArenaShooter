@@ -14,7 +14,9 @@ namespace PlayerWeapons
         private int _lastWeaponIndex;
         private DiContainer _diContainer;
         private PlayFabManager _playFabManager;
-        public event Action OnLoadCompleted; 
+        private const string LastWeaponIndexString = "LastWeaponIndex";
+
+        public event Action OnLoadCompleted;
 
         [Inject]
         private void Construct(DiContainer diContainer, PlayFabManager playFabManager)
@@ -47,46 +49,76 @@ namespace PlayerWeapons
 
         private void Load()
         {
-            var dic = new Dictionary<string, WeaponData>.KeyCollection(_data);
-            var keysList = new List<string>(weapons.Length);
+            var weaponKeyDict = new Dictionary<string, WeaponData>.KeyCollection(_data);
+            var weaponsKeyList = new List<string>(weapons.Length);
 
-            foreach (var key in dic)
+            foreach (var key in weaponKeyDict)
             {
-                keysList.Add(key);
+                weaponsKeyList.Add(key);
             }
 
-            var request = new GetUserDataRequest
+            var getWeapons = new GetUserDataRequest
             {
-                PlayFabId = _playFabManager.GetUserID(), Keys = keysList
+                PlayFabId = _playFabManager.GetUserID(), Keys = weaponsKeyList
             };
 
-            PlayFabClientAPI.GetUserData(request, result =>
+            PlayFabClientAPI.GetUserData(getWeapons, result =>
             {
                 for (int i = 0; i < result.Data.Count; i++)
                 {
                     var weapon = result.Data[weapons[i].GetData().GetName()].Value;
                     _data[weapons[i].GetData().GetName()] = JsonUtility.FromJson<WeaponData>(weapon);
                 }
-                
+
                 OnLoadCompleted?.Invoke();
-                
+
                 print("WeaponData: Loaded save");
+            }, error => { Debug.LogError(error.GenerateErrorReport(), this); });
+
+            var getLastWeaponIndex = new GetUserDataRequest
+            {
+                PlayFabId = _playFabManager.GetUserID(), Keys = new List<string> { LastWeaponIndexString }
+            };
+
+            PlayFabClientAPI.GetUserData(getLastWeaponIndex, result =>
+            {
+                if (result.Data.ContainsKey(LastWeaponIndexString))
+                {
+                    _lastWeaponIndex = Int32.Parse(result.Data[LastWeaponIndexString].Value);
+                    print("WeaponData: Loaded last weapon index");
+                }
             }, error => { Debug.LogError(error.GenerateErrorReport(), this); });
         }
 
         private void Save()
         {
-            var request = new UpdateUserDataRequest
+            var updateWeapons = new UpdateUserDataRequest
             {
                 Data = new Dictionary<string, string>(weapons.Length)
             };
 
             for (int i = 0; i < weapons.Length; i++)
             {
-                request.Data[weapons[i].GetData().GetName()] = _data[weapons[i].GetData().GetName()].Stringify();
+                updateWeapons.Data[weapons[i].GetData().GetName()] = _data[weapons[i].GetData().GetName()].Stringify();
             }
 
-            PlayFabClientAPI.UpdateUserData(request, OnSaveSuccess, OnSaveError);
+            PlayFabClientAPI.UpdateUserData(updateWeapons, OnSaveSuccess, OnSaveError);
+
+            var updateLastWeaponIndex = new UpdateUserDataRequest
+            {
+                Data = new Dictionary<string, string>(1)
+            };
+
+            if (updateLastWeaponIndex.Data.ContainsKey(LastWeaponIndexString))
+            {
+                updateLastWeaponIndex.Data[LastWeaponIndexString] = _lastWeaponIndex.ToString();
+            }
+            else
+            {
+                updateLastWeaponIndex.Data.Add(LastWeaponIndexString, _lastWeaponIndex.ToString());
+            }
+
+            PlayFabClientAPI.UpdateUserData(updateLastWeaponIndex, OnSaveSuccess, OnSaveError);
         }
 
         private void OnSaveSuccess(UpdateUserDataResult result)

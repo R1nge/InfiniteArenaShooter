@@ -108,7 +108,7 @@ public class Wallet : MonoBehaviour
 
     private void OnSaveSuccess(UpdateUserDataResult result)
     {
-        print($"Wallet: Saved money: {result}");
+        print($"Wallet: Saved money: {_money}");
     }
 
     private void OnSaveError(PlayFabError error)
