@@ -1,84 +1,32 @@
-﻿using PlayerWeapons;
+﻿using System;
+using PlayerWeapons;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
 namespace UI.Buttons
 {
-    public class UpgradeButton : MonoBehaviour
+    public abstract class UpgradeButton : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI text;
-        [SerializeField] private AutoWeapon weapon;
-        private WeaponDataManager _weaponDataManager;
+        [SerializeField] protected TextMeshProUGUI value;
+        [SerializeField] protected TextMeshProUGUI upgradePrice;
+        [SerializeField] protected AutoWeapon weapon;
+        protected WeaponDataManager WeaponDataManager;
 
         [Inject]
         private void Construct(WeaponDataManager weaponDataManager)
         {
-            _weaponDataManager = weaponDataManager;
+            WeaponDataManager = weaponDataManager;
         }
 
-        public void OnDamageHover()
-        {
-            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetDamage().ToString("#.##");
-        }
+        private void Awake() => Init();
 
-        public void OnDamagedExit()
-        {
-            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetDamagePrice().ToString("#.##");
-        }
+        protected abstract void Init();
 
-        public void OnFireRateHover()
-        {
-            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetFireRate().ToString("#.##");
-        }
+        public abstract void OnHover();
 
-        public void OnFireRateExit()
-        {
-            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetFireRatePrice().ToString("#.##");
-        }
+        public abstract void OnExit();
 
-        public void OnReloadTimeHover()
-        {
-            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetReloadTime().ToString("#.##");
-        }
-
-        public void OnReloadTimeExit()
-        {
-            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetReloadTimePrice().ToString("#.##");
-        }
-
-        public void OnClipSizeHover()
-        {
-            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetClipSize().ToString("#.##");
-        }
-
-        public void OnClipSizeExit()
-        {
-            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetClipSizePrice().ToString("#.##");
-        }
-
-        public void UpgradeDamage()
-        {
-            _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).IncreaseDamage();
-            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetDamage().ToString("#.##");
-        }
-
-        public void UpgradeFireRate()
-        {
-            _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).IncreaseFireRate();
-            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetFireRate().ToString("#.##");
-        }
-
-        public void UpgradeReloadTime()
-        {
-            _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).DecreaseReloadTime();
-            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetReloadTime().ToString("#.##");
-        }
-
-        public void UpgradeClipSize()
-        {
-            _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).IncreaseClipSize();
-            text.text = _weaponDataManager.GetWeaponData(weapon.GetData().GetName()).GetClipSize().ToString("#.##");
-        }
+        public abstract void Upgrade();
     }
 }

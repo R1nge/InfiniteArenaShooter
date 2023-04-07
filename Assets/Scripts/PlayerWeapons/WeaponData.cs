@@ -31,9 +31,41 @@ namespace PlayerWeapons
         public string GetName() => name;
         public void SetName(string value) => name = value;
         public float GetDamage() => damage;
+
+        public float GetNextDamage()
+        {
+            var nextDamage = damage;
+            nextDamage += DamageModifier * damageLevel;
+            return nextDamage;
+        }
+
         public float GetFireRate() => fireRate;
+
+        public float GetNextFireRate()
+        {
+            var nextFireRate = fireRate;
+            nextFireRate += FireRateModifier * fireRateLevel;
+            return nextFireRate;
+        }
+
         public float GetReloadTime() => reloadTime;
+
+        public float GetNextReloadTime()
+        {
+            var nextReloadTime = reloadTime;
+            nextReloadTime -= ReloadTimeModifier * reloadTime;
+            return nextReloadTime;
+        }
+
         public int GetClipSize() => clipSize;
+
+        public int GetNextClipSize()
+        {
+            var nextClipSize = clipSize;
+            nextClipSize += ClipSizeModifier;
+            return nextClipSize;
+        }
+
         public int GetBulletSpeed() => bulletSpeed;
         public bool IsUnlocked() => isUnlocked;
         public void SetLockState(bool value) => isUnlocked = value;
