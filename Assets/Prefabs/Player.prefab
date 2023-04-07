@@ -183,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actions: {fileID: -944628639613478452, guid: 76341d58b4c9d1a4f81eec5debe52a98, type: 3}
   gravity: 20
+  jumpHeight: 500
 --- !u!114 &2459783824567575533
 MonoBehaviour:
   m_ObjectHideFlags: 0

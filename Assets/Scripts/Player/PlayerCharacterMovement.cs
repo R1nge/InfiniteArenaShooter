@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
@@ -9,9 +10,11 @@ namespace Player
     {
         [SerializeField] private InputActionAsset actions;
         [SerializeField] private float gravity = 20.0f;
+        [SerializeField] private float jumpHeight;
         private CharacterController _characterController;
         private Vector3 _moveDirection = Vector3.zero;
         private InputAction _moveAction;
+        private InputAction _jumpAction;
         private PlayerStats _playerStats;
 
         [Inject]
@@ -27,6 +30,7 @@ namespace Player
         private void Awake()
         {
             _moveAction = actions.FindActionMap("Player").FindAction("Move");
+            _jumpAction = actions.FindActionMap("Player").FindAction("Jump");
             _characterController = GetComponent<CharacterController>();
         }
 
@@ -37,18 +41,30 @@ namespace Player
 
         private void Move()
         {
-            if (_characterController.isGrounded)
+            Vector3 forward = Vector3.forward;
+            Vector3 right = Vector3.right;
+            float curSpeedX = _playerStats.GetSpeed() * _moveAction.ReadValue<Vector2>().y;
+            float curSpeedY = _playerStats.GetSpeed() * _moveAction.ReadValue<Vector2>().x;
+            float movementDirectionY = _moveDirection.y;
+            _moveDirection = forward * curSpeedX + right * curSpeedY;
+
+            if (_jumpAction.WasPerformedThisFrame() && IsGrounded())
             {
-                Vector3 forward = Vector3.forward;
-                Vector3 right = Vector3.right;
-                float curSpeedX = _playerStats.GetSpeed() * _moveAction.ReadValue<Vector2>().y;
-                float curSpeedY = _playerStats.GetSpeed() * _moveAction.ReadValue<Vector2>().x;
-                _moveDirection = forward * curSpeedX + right * curSpeedY;
+                _moveDirection.y = jumpHeight * Time.deltaTime;
+            }
+            else
+            {
+                _moveDirection.y = movementDirectionY;
             }
 
-            _moveDirection.y -= gravity * Time.deltaTime;
+            if (!IsGrounded())
+            {
+                _moveDirection.y -= gravity * Time.deltaTime;
+            }
 
             _characterController.Move(_moveDirection * Time.deltaTime);
         }
+
+        private bool IsGrounded() => _characterController.isGrounded;
     }
 }

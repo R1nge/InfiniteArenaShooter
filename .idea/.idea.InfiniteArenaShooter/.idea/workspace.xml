@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ecc2b06e-c052-4c12-b28c-c2ee757b94c6" name="Changes" comment="feat: weapon upgrade UI updates on money change">
+    <list default="true" id="ecc2b06e-c052-4c12-b28c-c2ee757b94c6" name="Changes" comment="fix: weapon not getting its data on spawn">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InfiniteArenaShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InfiniteArenaShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayFabEditorExtensions/Editor/Resources/PlayFabEditorPrefsSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayFabEditorExtensions/Editor/Resources/PlayFabEditorPrefsSO.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BulletPool.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BulletPool.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pistol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pistol.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayFab/PlayFabManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayFab/PlayFabManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWeaponController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWeaponController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerWeapons/AutoWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerWeapons/AutoWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerWeapons/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerWeapons/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacterMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInput.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerInput.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +30,9 @@
     <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Scripts/Player/PlayerCharacter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Scripts/Player/PlayerCharacter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Scripts/Player/PlayerCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Scripts/Player/PlayerCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/UnityProjects/InfiniteArenaShooter/Assets/Scripts/PlayerWeapons/AutoWeapon.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../RoguelikeShooter/Assets/Scripts/Player/PlayerMovementController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UnityUsefulScripts/DI/Zenject/Installers/PlayerInstaller.cs" root0="SKIP_HIGHLIGHTING" />
@@ -280,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680860243179</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fix: weapon not getting its data on spawn">
+      <created>1680877229733</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1680877229733</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,6 +331,7 @@
     <MESSAGE value="fix: weapon save" />
     <MESSAGE value="feat: weapon upgrade UI" />
     <MESSAGE value="feat: weapon upgrade UI updates on money change" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: weapon upgrade UI updates on money change" />
+    <MESSAGE value="fix: weapon not getting its data on spawn" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: weapon not getting its data on spawn" />
   </component>
 </project>
