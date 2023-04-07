@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 public class Wallet : MonoBehaviour
@@ -10,6 +11,7 @@ public class Wallet : MonoBehaviour
     private int _money;
     private const string MoneyString = "Money";
     private PlayFabManager _playFabManager;
+    private bool _firstLaunch = true;
 
     private int Money
     {
@@ -19,7 +21,6 @@ public class Wallet : MonoBehaviour
         {
             _money = value;
             OnMoneyAmountChanged?.Invoke(_money);
-            Save();
         }
     }
 
@@ -27,12 +28,34 @@ public class Wallet : MonoBehaviour
 
 
     [Inject]
-    private void Construct(PlayFabManager playFabManager)
+    private void Construct(PlayFabManager playFabManager, [InjectOptional] int money)
     {
         _playFabManager = playFabManager;
+        _money += money;
     }
-    
-    private void Start() => Load();
+
+    private void Awake()
+    {
+        print("WALLET AWAKE");
+        SceneManager.sceneLoaded += OnSceneChanged;
+    }
+
+    private void OnSceneChanged(Scene sceneData, LoadSceneMode loadMode)
+    {
+        if (sceneData.name == "Home")
+        {
+            if (_firstLaunch)
+            {
+                Load();
+            }
+            else
+            {
+                Save();
+            }
+
+            print($"SceneChange: {_money}");
+        }
+    }
 
     public int GetMoney() => _money;
 
@@ -58,6 +81,7 @@ public class Wallet : MonoBehaviour
         if (Money - amount >= 0)
         {
             Money -= amount;
+            Save();
             return true;
         }
 
@@ -85,11 +109,14 @@ public class Wallet : MonoBehaviour
             {
                 print("Wallet: Save not found");
             }
+
+            _firstLaunch = false;
         }, error => { Debug.LogError(error.GenerateErrorReport(), this); });
     }
 
     private void Save()
     {
+        if (_firstLaunch) return;
         var request = new UpdateUserDataRequest
         {
             Data = new Dictionary<string, string>(1)
@@ -125,4 +152,6 @@ public class Wallet : MonoBehaviour
             Save();
         }
     }
+
+    private void OnDestroy() => SceneManager.sceneLoaded -= OnSceneChanged;
 }

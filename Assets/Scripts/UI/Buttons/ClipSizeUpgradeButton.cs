@@ -29,11 +29,11 @@
         public override void Upgrade()
         {
             var weaponData = WeaponDataManager.GetWeaponData(weapon.GetData().GetName());
+            Wallet.Spend(weaponData.GetClipSizePrice());
             weaponData.IncreaseClipSize();
+            button.interactable = Wallet.GetMoney() >= weaponData.GetClipSizePrice();
             value.text = $"{weaponData.GetClipSize()} -> {weaponData.GetNextClipSize()}";
             upgradePrice.text = weaponData.GetClipSizePrice().ToString("#.##") + "$";
-            button.interactable = Wallet.GetMoney() >= weaponData.GetClipSizePrice();
-            Wallet.Spend(weaponData.GetClipSizePrice());
         }
 
         protected override void UpdateButtonState(int money)

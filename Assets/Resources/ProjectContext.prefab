@@ -49,6 +49,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 9173454311562564427}
+  - {fileID: 3267742666048472852}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
@@ -117,9 +118,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5721004471699088137}
-  - component: {fileID: 4102401489831788105}
+  - component: {fileID: 3267742666048472852}
   m_Layer: 0
-  m_Name: WeaponManagerInstaller
+  m_Name: WalletInstaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +141,7 @@ Transform:
   m_Father: {fileID: 8056780628961239877}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4102401489831788105
+--- !u!114 &3267742666048472852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,7 +150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4082241558123638470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebaa520d3ec14867b6a0f3f9e772185c, type: 3}
+  m_Script: {fileID: 11500000, guid: f33fedf9fe4445db86cca3dc12b70090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDataManager: {fileID: 8816783347418491550, guid: f9b85b4ce3b1ecd468c394d61af61def, type: 3}
+  walletPrefab: {fileID: 8480217645438315663, guid: 20cc60227689a2946a44981db23c6eef, type: 3}

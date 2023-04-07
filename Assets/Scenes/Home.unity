@@ -469,7 +469,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 887666780}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &140089948
 GameObject:
@@ -1703,6 +1703,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631298733}
   m_CullTransparentMesh: 1
+--- !u!1 &696700745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 696700747}
+  - component: {fileID: 696700746}
+  m_Layer: 0
+  m_Name: WalletInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &696700746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696700745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33fedf9fe4445db86cca3dc12b70090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walletPrefab: {fileID: 8480217645438315663, guid: 20cc60227689a2946a44981db23c6eef, type: 3}
+--- !u!4 &696700747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696700745}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 887666780}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &734526789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,7 +2779,6 @@ MonoBehaviour:
   - {fileID: 1120592462}
   - {fileID: 86407038}
   - {fileID: 1639864844}
-  - {fileID: 1750875763}
   - {fileID: 1325345059}
   - {fileID: 1145786399}
   _installerPrefabs: []
@@ -2767,9 +2811,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1120592461}
+  - {fileID: 696700747}
   - {fileID: 86407039}
   - {fileID: 1639864843}
-  - {fileID: 1750875762}
   - {fileID: 1325345058}
   - {fileID: 1145786398}
   m_Father: {fileID: 0}
@@ -4991,7 +5035,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 887666780}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1639864844
 MonoBehaviour:
@@ -5140,51 +5184,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670051754}
   m_CullTransparentMesh: 1
---- !u!1 &1750875761
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1750875762}
-  - component: {fileID: 1750875763}
-  m_Layer: 0
-  m_Name: WalletInstaller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1750875762
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750875761}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 887666780}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1750875763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750875761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f33fedf9fe4445db86cca3dc12b70090, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walletPrefab: {fileID: 8480217645438315663, guid: 20cc60227689a2946a44981db23c6eef, type: 3}
 --- !u!1 &1772093627
 GameObject:
   m_ObjectHideFlags: 0
