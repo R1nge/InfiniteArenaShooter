@@ -12,30 +12,18 @@ namespace PlayerWeapons
         private float _nextFire;
         private bool _isReloading;
         private BulletPool _bulletPool;
-        private WeaponDataManager _weaponDataManager;
 
         [Inject]
-        private void Construct(BulletPool bulletPool, WeaponDataManager weaponDataManager)
+        private void Construct(BulletPool bulletPool)
         {
             _bulletPool = bulletPool;
-            _weaponDataManager = weaponDataManager;
         }
 
         public WeaponData GetData() => weaponData;
 
-        private void Awake()
+        public void SetData(WeaponData data)
         {
-            _weaponDataManager.OnLoadCompleted += Load;
-        }
-
-        private void Start()
-        {
-            weaponData = _weaponDataManager.GetWeaponData(weaponData.GetName());
-        }
-
-        private void Load()
-        {
-            weaponData = _weaponDataManager.GetWeaponData(weaponData.GetName());
+            weaponData = data;
             _currentAmmoAmount = weaponData.GetClipSize();
         }
 
@@ -72,11 +60,6 @@ namespace PlayerWeapons
             yield return new WaitForSeconds(weaponData.GetReloadTime());
             _isReloading = false;
             _currentAmmoAmount = weaponData.GetClipSize();
-        }
-
-        private void OnDestroy()
-        {
-            _weaponDataManager.OnLoadCompleted -= Load;
         }
     }
 }

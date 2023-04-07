@@ -49,10 +49,10 @@ MonoBehaviour:
   weaponData:
     name: Pistol
     damage: 1
-    fireRate: 60
+    fireRate: 600
     reloadTime: 3
-    clipSize: 20
-    bulletSpeed: 250
+    clipSize: 60
+    bulletSpeed: 1000
     basePrice: 1
     isUnlocked: 1
     damageLevel: 1

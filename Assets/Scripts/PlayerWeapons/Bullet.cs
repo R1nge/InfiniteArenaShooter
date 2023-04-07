@@ -21,6 +21,7 @@ namespace PlayerWeapons
                 damageable.TakeDamage(_damage);
             }
 
+            _rigidbody.velocity = Vector3.zero;
             gameObject.SetActive(false);
         }
 

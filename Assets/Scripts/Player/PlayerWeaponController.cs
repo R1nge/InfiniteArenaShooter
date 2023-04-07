@@ -28,7 +28,9 @@ namespace Player
 
         private void WeaponDataManagerOnLoadCompleted()
         {
-            SetWeapon(_weaponDataManager.SpawnSavedWeapon());
+            var weapon = _weaponDataManager.SpawnSavedWeapon();
+            weapon.SetData(_weaponDataManager.GetWeaponData(weapon.GetData().GetName()));
+            SetWeapon(weapon);
         }
 
         private void Update()

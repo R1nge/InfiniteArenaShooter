@@ -198,7 +198,7 @@ MonoBehaviour:
   rayDistance: 50
   ignoreLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
 --- !u!114 &8319796386569142031
 MonoBehaviour:
   m_ObjectHideFlags: 0
