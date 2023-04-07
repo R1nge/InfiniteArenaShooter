@@ -1290,6 +1290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b920e702644e80ba5623fc7f432317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 608208316}
   value: {fileID: 2016934328}
   upgradePrice: {fileID: 1829021551}
   weapon: {fileID: 1088189015919171431, guid: 548b447f676bba948bf027d604538a4f, type: 3}
@@ -2401,6 +2402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d24956b22dd431cb94a8e054a8e6489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 844910688}
   value: {fileID: 734526791}
   upgradePrice: {fileID: 141899256}
   weapon: {fileID: 1088189015919171431, guid: 548b447f676bba948bf027d604538a4f, type: 3}
@@ -2458,6 +2460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 939200b7f777456386e95cae19855f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 871940188}
   value: {fileID: 1177406509}
   upgradePrice: {fileID: 631298735}
   weapon: {fileID: 1088189015919171431, guid: 548b447f676bba948bf027d604538a4f, type: 3}
@@ -5861,6 +5864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9266cd8cdcef41a8a32229824dd44e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 2053232894}
   value: {fileID: 520192881}
   upgradePrice: {fileID: 397842423}
   weapon: {fileID: 1088189015919171431, guid: 548b447f676bba948bf027d604538a4f, type: 3}

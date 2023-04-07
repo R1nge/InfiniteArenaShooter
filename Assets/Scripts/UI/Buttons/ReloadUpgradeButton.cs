@@ -6,6 +6,7 @@
         {
             var weaponData = WeaponDataManager.GetWeaponData(weapon.GetData().GetName());
             upgradePrice.text = weaponData.GetReloadTimePrice().ToString("#.##") + "$";
+            button.interactable = Wallet.GetMoney() >= weaponData.GetReloadTimePrice();
             value.text = $"{weaponData.GetReloadTime()}";
         }
 
@@ -13,6 +14,7 @@
         {
             var weaponData = WeaponDataManager.GetWeaponData(weapon.GetData().GetName());
             upgradePrice.text = weaponData.GetReloadTimePrice().ToString("#.##") + "$";
+            button.interactable = Wallet.GetMoney() >= weaponData.GetReloadTimePrice();
             value.text = $"{weaponData.GetReloadTime()} -> {weaponData.GetNextReloadTime()}";
         }
 
@@ -20,6 +22,7 @@
         {
             var weaponData = WeaponDataManager.GetWeaponData(weapon.GetData().GetName());
             upgradePrice.text = weaponData.GetReloadTimePrice().ToString("#.##") + "$";
+            button.interactable = Wallet.GetMoney() >= weaponData.GetReloadTimePrice();
             value.text = $"{weaponData.GetReloadTime()}";
         }
 
@@ -29,6 +32,14 @@
             weaponData.DecreaseReloadTime();
             value.text = $"{weaponData.GetReloadTime()} -> {weaponData.GetNextReloadTime()}";
             upgradePrice.text = weaponData.GetReloadTimePrice().ToString("#.##") + "$";
+            button.interactable = Wallet.GetMoney() >= weaponData.GetReloadTimePrice();
+            Wallet.Spend(weaponData.GetReloadTimePrice());
+        }
+
+        protected override void UpdateButtonState(int money)
+        {
+            var weaponData = WeaponDataManager.GetWeaponData(weapon.GetData().GetName());
+            button.interactable = Wallet.GetMoney() >= weaponData.GetReloadTimePrice();
         }
     }
 }

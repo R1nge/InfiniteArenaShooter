@@ -34,6 +34,8 @@ public class Wallet : MonoBehaviour
     
     private void Start() => Load();
 
+    public int GetMoney() => _money;
+
     public void Earn(int amount)
     {
         if (amount < 0)

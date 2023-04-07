@@ -6,6 +6,7 @@
         {
             var weaponData = WeaponDataManager.GetWeaponData(weapon.GetData().GetName());
             upgradePrice.text = weaponData.GetFireRatePrice().ToString("#.##") + "$";
+            button.interactable = Wallet.GetMoney() >= weaponData.GetFireRatePrice();
             value.text = $"{weaponData.GetFireRate()}";
         }
 
@@ -13,6 +14,7 @@
         {
             var weaponData = WeaponDataManager.GetWeaponData(weapon.GetData().GetName());
             upgradePrice.text = weaponData.GetFireRatePrice().ToString("#.##") + "$";
+            button.interactable = Wallet.GetMoney() >= weaponData.GetFireRatePrice();
             value.text = $"{weaponData.GetFireRate()} -> {weaponData.GetNextFireRate()}";
         }
 
@@ -20,6 +22,7 @@
         {
             var weaponData = WeaponDataManager.GetWeaponData(weapon.GetData().GetName());
             upgradePrice.text = weaponData.GetFireRatePrice().ToString("#.##") + "$";
+            button.interactable = Wallet.GetMoney() >= weaponData.GetFireRatePrice();
             value.text = $"{weaponData.GetFireRate()}";
         }
 
@@ -29,6 +32,14 @@
             weaponData.IncreaseFireRate();
             value.text = $"{weaponData.GetFireRate()} -> {weaponData.GetNextFireRate()}";
             upgradePrice.text = weaponData.GetFireRatePrice().ToString("#.##") + "$";
+            button.interactable = Wallet.GetMoney() >= weaponData.GetFireRatePrice();
+            Wallet.Spend(weaponData.GetFireRatePrice());
+        }
+
+        protected override void UpdateButtonState(int money)
+        {
+            var weaponData = WeaponDataManager.GetWeaponData(weapon.GetData().GetName());
+            button.interactable = Wallet.GetMoney() >= weaponData.GetFireRatePrice();
         }
     }
 }
