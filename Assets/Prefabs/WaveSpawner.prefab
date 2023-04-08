@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8efc64a1529d4582891cec697768a664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 5359377974375627075, guid: ffff17b464aae824cb97632f87ec416f, type: 3}
-  - {fileID: 5359377974375627075, guid: 3c412d2453b9ba24288af04024791a25, type: 3}
-  possibleEnemyAmount: {x: 5, y: 15}
+  waves:
+  - {fileID: 11400000, guid: 6fb815f1994d1eb49aba51d2f2c7400f, type: 2}
   arenaSize: {x: 15, y: 10}

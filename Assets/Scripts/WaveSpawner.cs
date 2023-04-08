@@ -1,16 +1,15 @@
 ﻿using System;
+using Enemy;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 using Random = UnityEngine.Random;
 
 public class WaveSpawner : MonoBehaviour
 {
-    [SerializeField] private Enemy.Enemy[] enemies;
-    [SerializeField] private Vector2 possibleEnemyAmount;
+    [SerializeField] private EnemyWavePreset[] waves;
     [SerializeField] private Vector2 arenaSize;
     private DiContainer _diContainer;
-    private int _enemyRemain;
+    private int _enemiesRemain;
 
     public event Action OnWaveClearedEvent;
 
@@ -24,28 +23,34 @@ public class WaveSpawner : MonoBehaviour
 
     private void SpawnWave()
     {
-        var currentWaveEnemyAmount = Random.Range(possibleEnemyAmount.x, possibleEnemyAmount.y);
-        for (int i = 0; i < currentWaveEnemyAmount; i++)
+        for (int i = 0; i < waves.Length; i++)
         {
-            var selectedEnemy = enemies[Random.Range(0, enemies.Length)];
-            var position = new Vector3(
-                Random.Range(-arenaSize.x / 2f, arenaSize.x / 2f),
-                Random.Range(15, 30),
-                Random.Range(-arenaSize.y / 2f, arenaSize.y / 2f)
-            );
+            for (int j = 0; j < waves[i].GetEnemies().Length; j++)
+            {
+                for (int k = 0; k < waves[i].GetEnemyCount(j); k++)
+                {
+                    var selectedEnemy = waves[i].GetEnemies()[j];
+                    var position = new Vector3(
+                        Random.Range(-arenaSize.x / 2f, arenaSize.x / 2f),
+                        Random.Range(15, 30),
+                        Random.Range(-arenaSize.y / 2f, arenaSize.y / 2f)
+                    );
 
-            var enemy = _diContainer.InstantiatePrefabForComponent<Enemy.Enemy>(selectedEnemy, position, Quaternion.identity, null);
-            enemy.OnDeathEvent += CheckWaveEnd;
+                    var enemy = _diContainer.InstantiatePrefabForComponent<Enemy.Enemy>(selectedEnemy, position,
+                        Quaternion.identity, null);
+                    enemy.OnDeathEvent += CheckWaveEnd;
 
-            _enemyRemain++;
+                    _enemiesRemain++;
+                }
+            }
         }
     }
 
     private void CheckWaveEnd(Enemy.Enemy enemy)
     {
         enemy.OnDeathEvent -= CheckWaveEnd;
-        _enemyRemain--;
-        if (_enemyRemain <= 0)
+        _enemiesRemain--;
+        if (_enemiesRemain <= 0)
         {
             OnWaveClearedEvent?.Invoke();
         }
