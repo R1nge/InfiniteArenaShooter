@@ -1,4 +1,5 @@
-﻿using Player;
+﻿using System;
+using Player;
 using SkillSystem;
 using UnityEngine;
 using UnityEngine.AI;
@@ -18,6 +19,8 @@ namespace Enemy
         private Rigidbody _rigidbody;
         private bool _landed;
         private const string Arena = "Arena";
+
+        public event Action<Enemy> OnDeathEvent;
 
         [Inject]
         private void Construct(PlayerCharacter player, Wallet wallet, SkillLevelManager skillLevelManager)
@@ -39,6 +42,7 @@ namespace Enemy
         {
             _wallet.Earn(moneyReward);
             _skillLevelManager.AddExperience(experienceReward);
+            OnDeathEvent?.Invoke(this);
             Destroy(gameObject);
         }
 
