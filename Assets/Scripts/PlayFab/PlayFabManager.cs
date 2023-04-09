@@ -75,7 +75,7 @@ namespace PlayFab
 
         private IEnumerator WaitForConnection()
         {
-            yield return new WaitForSeconds(3);
+            yield return null;
             SceneManager.LoadScene("Home");
         }
 
