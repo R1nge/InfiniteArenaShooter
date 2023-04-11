@@ -21,17 +21,19 @@ public class Wallet : MonoBehaviour
         {
             _money = value;
             OnMoneyAmountChanged?.Invoke(_money);
+            print("MOOOOOOOOOONEEEEEEEEEEY CHANGED");
         }
     }
 
     public event Action<int> OnMoneyAmountChanged;
 
 
+    public int GetMoney() => Money;
+
     [Inject]
-    private void Construct(PlayFabManager playFabManager, [InjectOptional] int money)
+    private void Construct(PlayFabManager playFabManager)
     {
         _playFabManager = playFabManager;
-        _money += money;
     }
 
     private void Awake()
@@ -56,8 +58,6 @@ public class Wallet : MonoBehaviour
             print($"SceneChange: {_money}");
         }
     }
-
-    public int GetMoney() => _money;
 
     public void Earn(int amount)
     {
@@ -102,8 +102,8 @@ public class Wallet : MonoBehaviour
             if (result.Data.ContainsKey(MoneyString))
             {
                 var moneyAmount = result.Data[MoneyString].Value;
-                _money = Int32.Parse(moneyAmount);
-                print($"Wallet: Loaded save. Money: {_money}");
+                Money = Int32.Parse(moneyAmount);
+                print($"Wallet: Loaded save. Money: {Money}");
             }
             else
             {
@@ -124,11 +124,11 @@ public class Wallet : MonoBehaviour
 
         if (request.Data.TryGetValue(MoneyString, out string value))
         {
-            request.Data[MoneyString] = _money.ToString();
+            request.Data[MoneyString] = Money.ToString();
         }
         else
         {
-            request.Data.Add(MoneyString, _money.ToString());
+            request.Data.Add(MoneyString, Money.ToString());
         }
 
 
@@ -137,7 +137,7 @@ public class Wallet : MonoBehaviour
 
     private void OnSaveSuccess(UpdateUserDataResult result)
     {
-        print($"Wallet: Saved money: {_money}");
+        print($"Wallet: Saved money: {Money}");
     }
 
     private void OnSaveError(PlayFabError error)

@@ -7,7 +7,7 @@ namespace PlayFab
 {
     public class PlayFabManager : MonoBehaviour
     {
-        private string _userName, _password;
+        private string _email, _userName, _password;
         private string _userID;
 
         public string GetUserID() => _userID;
@@ -17,6 +17,11 @@ namespace PlayFab
             _userName = username;
         }
 
+        public void SetEmail(string email)
+        {
+            _email = email;
+        }
+
         public void SetPassword(string password)
         {
             _password = password;
@@ -24,7 +29,7 @@ namespace PlayFab
 
         public void Register()
         {
-            if (_userName == string.Empty || _password == string.Empty)
+            if (_userName == string.Empty || _email == string.Empty || _password == string.Empty)
             {
                 return;
             }
@@ -32,8 +37,9 @@ namespace PlayFab
             var request = new RegisterPlayFabUserRequest
             {
                 Username = _userName,
+                Email = _email,
                 Password = _password,
-                RequireBothUsernameAndEmail = false
+                DisplayName = _userName
             };
 
             PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, OnRegisterError);

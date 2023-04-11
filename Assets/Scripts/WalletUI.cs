@@ -15,6 +15,8 @@ public class WalletUI : MonoBehaviour
 
     private void Awake() => _wallet.OnMoneyAmountChanged += UpdateUI;
 
+    private void Start() => UpdateUI(_wallet.GetMoney());
+
     private void UpdateUI(int money) => moneyText.text = money.ToString();
 
     private void OnDestroy() => _wallet.OnMoneyAmountChanged -= UpdateUI;
