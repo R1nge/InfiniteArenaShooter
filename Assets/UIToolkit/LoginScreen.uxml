@@ -1,16 +1,34 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="Background" style="flex-grow: 1; align-items: center;">
-        <ui:VisualElement name="Panel" style="align-items: stretch; justify-content: flex-start; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); width: 360px; position: absolute; top: 360px; height: 360px; left: auto;">
-            <ui:Label text="LOGIN" display-tooltip-when-elided="true" focusable="false" style="color: rgb(0, 0, 0); font-size: 36px; -unity-text-align: upper-center;" />
+    <ui:VisualElement name="background" style="flex-grow: 1; align-items: center;">
+        <ui:VisualElement name="login-content" tabindex="0" style="align-items: stretch; justify-content: flex-start; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); width: 360px; position: absolute; top: 360px; height: 360px; left: auto;">
             <ui:VisualElement name="username-input-wrapper" style="position: absolute; height: 36px; width: 255px; top: 108px; left: 54px; flex-direction: row;">
                 <ui:VisualElement tabindex="0" name="username-image" style="position: relative; height: 37px; width: 32px; top: 0; left: 0; opacity: 1; justify-content: flex-start; align-items: stretch; background-image: url(&apos;project://database/Assets/Images/usernameIcon.png?fileID=2800000&amp;guid=b3c76f982dace454c982fe8221f3aeb1&amp;type=3#usernameIcon&apos;);" />
-                <ui:TextField picking-mode="Ignore" text="Username" name="username-input" style="position: absolute; top: 0; left: 32px; width: 214px; height: 32px;" />
+                <ui:TextField picking-mode="Ignore" name="login-username-input" readonly="false" is-delayed="false" style="position: absolute; top: 0; left: 32px; width: 214px; height: 32px;" />
             </ui:VisualElement>
             <ui:VisualElement name="password-input-wrapper" style="position: absolute; height: 36px; width: 255px; top: 158px; left: 54px;">
                 <ui:VisualElement tabindex="0" name="password-image" style="position: relative; height: 37px; width: 32px; top: 0; left: 0; opacity: 1; justify-content: flex-start; align-items: stretch; background-image: url(&apos;project://database/Assets/Images/passwordIcon.png?fileID=2800000&amp;guid=e0cbc8195e93376469feb0ffa27542d3&amp;type=3#passwordIcon&apos;);" />
-                <ui:TextField picking-mode="Ignore" text="Password" name="password-input" style="position: absolute; top: 0; left: 32px; width: 214px; height: 32px;" />
+                <ui:TextField picking-mode="Ignore" name="login-password-input" password="false" style="position: absolute; top: 0; left: 32px; width: 214px; height: 32px;" />
             </ui:VisualElement>
-            <ui:Button text="Login" display-tooltip-when-elided="true" name="login-button" style="position: absolute; top: 312px; left: 161px;" />
+            <ui:Button text="Login" display-tooltip-when-elided="true" name="login-button" style="position: absolute; top: 290px; left: 161px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="register-content" tabindex="0" style="align-items: stretch; justify-content: flex-start; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); width: 360px; position: absolute; top: 360px; height: 360px; left: auto;">
+            <ui:VisualElement name="username-input-wrapper" style="position: absolute; height: 36px; width: 255px; top: 108px; left: 54px; flex-direction: row;">
+                <ui:VisualElement tabindex="0" name="username-image" style="position: relative; height: 37px; width: 32px; top: 0; left: 0; opacity: 1; justify-content: flex-start; align-items: stretch; background-image: url(&apos;project://database/Assets/Images/usernameIcon.png?fileID=2800000&amp;guid=b3c76f982dace454c982fe8221f3aeb1&amp;type=3#usernameIcon&apos;);" />
+                <ui:TextField picking-mode="Ignore" name="register-username-input" readonly="false" is-delayed="false" style="position: absolute; top: 0; left: 32px; width: 214px; height: 32px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="email-input-wrapper" style="position: absolute; height: 36px; width: 255px; top: 158px; left: 54px;">
+                <ui:VisualElement tabindex="0" name="email-image" style="position: relative; height: 37px; width: 32px; top: 0; left: 0; opacity: 1; justify-content: flex-start; align-items: stretch; background-image: none;" />
+                <ui:TextField picking-mode="Ignore" name="register-email-input" password="false" style="position: absolute; top: 0; left: 32px; width: 214px; height: 32px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="password-input-wrapper" style="position: absolute; height: 36px; width: 255px; top: 208px; left: 54px;">
+                <ui:VisualElement tabindex="0" name="password-image" style="position: relative; height: 37px; width: 32px; top: 0; left: 0; opacity: 1; justify-content: flex-start; align-items: stretch; background-image: url(&apos;project://database/Assets/Images/passwordIcon.png?fileID=2800000&amp;guid=e0cbc8195e93376469feb0ffa27542d3&amp;type=3#passwordIcon&apos;);" />
+                <ui:TextField picking-mode="Ignore" name="register-password-input" password="false" style="position: absolute; top: 0; left: 32px; width: 214px; height: 32px;" />
+            </ui:VisualElement>
+            <ui:Button text="Register" display-tooltip-when-elided="true" name="register-button" style="position: absolute; top: 290px; left: 161px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="tabs" style="position: absolute; top: 362px; left: 781px; flex-direction: row; width: 355px; justify-content: space-around;">
+            <ui:Button text="register" display-tooltip-when-elided="true" name="register-tab-button" />
+            <ui:Button text="login" display-tooltip-when-elided="true" name="login-tab-button" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

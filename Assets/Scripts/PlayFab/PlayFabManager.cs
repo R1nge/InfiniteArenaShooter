@@ -47,6 +47,8 @@ namespace PlayFab
 
         private void OnRegisterSuccess(RegisterPlayFabUserResult result)
         {
+            _userID = result.PlayFabId;
+            StartCoroutine(WaitForConnection());
             print("Successful register");
         }
 
