@@ -19,11 +19,7 @@ namespace Player
             _playerStats = playerStats;
         }
 
-        private void Awake()
-        {
-            _currentHealth = _playerStats.GetMaxHealth();
-            OnDiedEvent += OnOnDiedEvent;
-        }
+        private void Awake() => _currentHealth = _playerStats.GetMaxHealth();
 
         private void Start() => InitEvent?.Invoke(_currentHealth, _playerStats.GetMaxHealth());
 
@@ -40,12 +36,5 @@ namespace Player
                 OnDamagedEvent?.Invoke(_currentHealth, _playerStats.GetMaxHealth());
             }
         }
-
-        private void OnOnDiedEvent()
-        {
-            //TODO: show game over UI
-        }
-
-        private void OnDestroy() => OnDiedEvent -= OnOnDiedEvent;
     }
 }

@@ -1,7 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement name="Background" style="flex-grow: 1; align-items: center; justify-content: center;">
-        <ui:VisualElement name="Panel" style="position: absolute; align-items: stretch; justify-content: flex-start; background-color: rgba(255, 255, 255, 255); flex-basis: auto; width: 442px; height: 244px; left: auto;">
-            <ui:Label text="Game Over" display-tooltip-when-elided="true" style="color: rgba(26, 26, 26, 255); -unity-text-align: upper-center; font-size: 30px;" />
+        <ui:VisualElement name="Panel" style="position: absolute; align-items: stretch; justify-content: flex-start; background-color: rgb(255, 255, 255); flex-basis: auto; width: 442px; height: 244px; left: auto;">
+            <ui:Label text="Game Over" display-tooltip-when-elided="true" style="color: rgb(26, 26, 26); -unity-text-align: upper-center; font-size: 30px;" />
+            <ui:Button text="Return home" display-tooltip-when-elided="true" name="go-home-button" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
