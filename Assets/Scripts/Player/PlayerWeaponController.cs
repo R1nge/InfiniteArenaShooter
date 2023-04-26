@@ -1,4 +1,5 @@
-﻿using PlayerWeapons;
+﻿using System;
+using PlayerWeapons;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,6 +14,7 @@ namespace Player
         private AutoWeapon _currentWeapon;
         private InputAction _attackAction;
         private WeaponDataManager _weaponDataManager;
+        private PlayerCharacter _playerCharacter;
 
         [Inject]
         private void Construct(WeaponDataManager weaponDataManager)
@@ -24,6 +26,13 @@ namespace Player
         {
             _weaponDataManager.OnLoadCompleted += WeaponDataManagerOnLoadCompleted;
             _attackAction = actions.FindActionMap("Player").FindAction("Attack");
+            _playerCharacter = GetComponent<PlayerCharacter>();
+            _playerCharacter.OnCharacterChangedEvent += ChangeBulletType;
+        }
+
+        private void ChangeBulletType(EnemyType newType)
+        {
+            _currentWeapon.SetBulletType(newType);
         }
 
         private void WeaponDataManagerOnLoadCompleted()
@@ -51,6 +60,11 @@ namespace Player
             _currentWeapon = autoWeapon;
             _currentWeapon.transform.parent = weaponParent;
             _currentWeapon.transform.SetLocalPositionAndRotation(Vector3.zero, quaternion.identity);
+        }
+
+        private void OnDestroy()
+        {
+            _playerCharacter.OnCharacterChangedEvent -= ChangeBulletType;
         }
     }
 }

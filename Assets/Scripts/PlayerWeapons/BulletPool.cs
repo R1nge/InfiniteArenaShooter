@@ -23,7 +23,7 @@ namespace PlayerWeapons
         {
             if (_pool != null)
             {
-                Debug.LogWarning("Trying to create pool, when one already exists", this);
+                Debug.LogWarning("Trying to create a pool, when one already exists", this);
                 return;
             }
 
@@ -41,7 +41,7 @@ namespace PlayerWeapons
         {
             if (_pool == null)
             {
-                Debug.LogError("Trying to get object from uninitialized pool", this);
+                Debug.LogError("Trying to get an object from uninitialized pool", this);
                 return null;
             }
 

@@ -1,12 +1,16 @@
-﻿using UnityEngine;
+﻿using Enemy;
+using UnityEngine;
 
 namespace PlayerWeapons
 {
     [RequireComponent(typeof(Rigidbody))]
     public class Bullet : MonoBehaviour
     {
+        private EnemyType _type;
         private float _damage;
         private Rigidbody _rigidbody;
+
+        public void SetType(EnemyType newType) => _type = newType;
 
         public void SetDamage(float damage) => _damage = damage;
 
@@ -16,9 +20,9 @@ namespace PlayerWeapons
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.TryGetComponent(out IDamageable damageable))
+            if (collision.gameObject.TryGetComponent(out EnemyHealth health))
             {
-                damageable.TakeDamage(_damage);
+                health.TakeDamage(_damage, _type);
             }
 
             _rigidbody.velocity = Vector3.zero;

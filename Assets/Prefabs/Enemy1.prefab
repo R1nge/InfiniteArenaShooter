@@ -403,6 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  type: 1
 --- !u!114 &1558558163096979245
 MonoBehaviour:
   m_ObjectHideFlags: 0

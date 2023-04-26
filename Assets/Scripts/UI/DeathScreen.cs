@@ -38,6 +38,7 @@ namespace UI
         private void GoHomeButtonClicked()
         {
             print("Home");
+            Time.timeScale = 1;
             SceneManager.LoadScene("Home");
         }
 
@@ -47,6 +48,7 @@ namespace UI
             root.style.display = DisplayStyle.Flex;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
         }
 
         private void OnDestroy()

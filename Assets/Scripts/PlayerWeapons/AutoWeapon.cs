@@ -12,6 +12,7 @@ namespace PlayerWeapons
         private float _nextFire;
         private bool _isReloading;
         private BulletPool _bulletPool;
+        private EnemyType _enemyType;
 
         [Inject]
         private void Construct(BulletPool bulletPool)
@@ -26,6 +27,8 @@ namespace PlayerWeapons
             weaponData = data;
             _currentAmmoAmount = weaponData.GetClipSize();
         }
+
+        public void SetBulletType(EnemyType newType) => _enemyType = newType;
 
         public void Attack()
         {
@@ -49,6 +52,7 @@ namespace PlayerWeapons
                 _nextFire = Time.time + 1 / (weaponData.GetFireRate() / 60);
                 _currentAmmoAmount--;
                 var bulletInstance = _bulletPool.GetFromPool(shootPoint.position, Quaternion.identity);
+                bulletInstance.SetType(_enemyType);
                 bulletInstance.SetDamage(weaponData.GetDamage());
                 bulletInstance.AddForce(shootPoint.forward, weaponData.GetBulletSpeed());
             }
